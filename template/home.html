@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><a href="{% url 'register' %}">signup</a></h1>
+    <form method="get">
+        <input type="text" , name="Qidiruv">
+        <button>search</button>
+    </form>
+    <a href="{% url 'create' %}">создать</a>
+    {% for i in all_news %}
+
+    <h1>
+        <a href="{%  url 'detail' i.id %}">
+            {{i.sarlavha}}
+        </a>
+    </h1>
+
+    <p>{{i.matn}}</p>
+
+
+    {% if i.rasm %}
+    <img src="{{ i.rasm.url }}" alt="">
+    {% endif %}
+
+
+    <br>
+    <hr>
+    {% endfor %}

@@ -1,0 +1,31 @@
+RASM JOYLASH
+
+1. Rasm saqlash uchun papka yaratish
+    mkdir media
+
+2. media papka uchun settings.py da sozlash
+    MEDIA_URL = 'media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
+
+3. MEDIA_URL ni urls.py ga ulab qoyishimiz kerak
+    from django.conf import settings
+    from django.conf.urls.static import static
+
+    urlpatterns = [
+        ...
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+4. News qolipiga rasm field qoshamiz
+    rasm = models.ImageField(null=True)
+
+5. Rasm ishlashi uchun django Pillow ni soraydi
+    pip install Pillow # powershellda [ muhit active holida]
+
+6. python manage.py makemigrations
+7. python manage.py migrate
+
+8. create.html da form ni tahrirlaymiz
+
+        <form method="post", enctype="multipart/form-data">
+        ...
+        </form>
